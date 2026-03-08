@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapalo Eldred Mange - Professional Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            letter-spacing: -0.2px;
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Blurred background effect */
+        .background-blur {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/background.png'); /* Your background image */
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px) grayscale(100%);
+            opacity: 0.15;
+            z-index: -1;
+        }
+        
+        .resume-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background-color: white;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            border-radius: 3px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .resume-container:hover {
+            transform: translateY(-5px);
+        }
+        
+        .resume-header {
+            background: linear-gradient(to right, #1a1a1a, #2d2d2d);
+            color: white;
+            padding: 40px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+        
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.15);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f0f0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.03);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .profile-info {
+            flex: 1;
+        }
+        
+        .name {
+            font-size: 44px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+            color: white;
+        }
+        
+        .title {
+            font-size: 22px;
+            font-weight: 400;
+            opacity: 0.85;
+            margin-bottom: 18px;
+            color: #e0e0e0;
+        }
+        
+        .summary {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            transition: all 0.2s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateX(3px);
+        }
+        
+        .contact-item i {
+            color: #b0b0b0;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .resume-body {
+            padding: 50px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e0e0e0;
+            position: relative;
+        }
+        
+        .section-header:after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background-color: #444;
+        }
+        
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #444;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-right: 15px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #222;
+        }
+        
+        .subsection {
+            margin-bottom: 28px;
+            padding: 20px;
+            background-color: #fafafa;
+            border-radius: 4px;
+            border-left: 3px solid #666;
+            transition: all 0.2s ease;
+        }
+        
+        .subsection:hover {
+            background-color: #f5f5f5;
+            transform: translateX(3px);
+        }
+        
+        .subsection-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .subsection-subtitle {
+            font-size: 17px;
+            color: #666;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .subsection-date {
+            font-size: 16px;
+            color: #888;
+            margin-bottom: 12px;
+            font-weight: 500;
+            display: inline-block;
+            padding: 4px 10px;
+            background-color: #eee;
+            border-radius: 3px;
+        }
+        
+        .subsection-content {
+            font-size: 16px;
+            color: #444;
+            line-height: 1.6;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        
+        .skill-item {
+            background-color: #eee;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 15px;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: 1px solid #ddd;
+        }
+        
+        .skill-item:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-2px);
+        }
+        
+        .achievements-list {
+            list-style-type: none;
+        }
+        
+        .achievements-list li {
+            margin-bottom: 10px;
+            padding-left: 24px;
+            position: relative;
+        }
+        
+        .achievements-list li:before {
+            content: "▸";
+            color: #666;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .action-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 100;
+        }
+        
+        .action-btn {
+            background-color: #333;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .action-btn:hover {
+            background-color: #222;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .action-btn.print {
+            background-color: #666;
+        }
+        
+        .action-btn.print:hover {
+            background-color: #555;
+        }
+        
+        .watermark {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: rgba(255, 255, 255, 0.05);
+            font-size: 140px;
+            font-weight: 900;
+            pointer-events: none;
+            user-select: none;
+            letter-spacing: 5px;
+        }
+        
+        .progress-bar {
+            height: 4px;
+            width: 0;
+            background-color: #666;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 101;
+            transition: width 0.2s ease;
+        }
+        
+        .section-counter {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 14px;
+            color: #888;
+            font-weight: 500;
+        }
+        
+        @media print {
+            .action-buttons, .progress-bar, .background-blur {
+                display: none;
+            }
+            
+            body {
+                background-color: white;
+            }
+            
+            .resume-container {
+                box-shadow: none;
+                margin: 0;
+                max-width: 100%;
+            }
+            
+            .subsection {
+                break-inside: avoid;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 25px;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+            
+            .resume-header, .resume-body {
+                padding: 30px;
+            }
+            
+            .name {
+                font-size: 36px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                right: 15px;
+                bottom: 15px;
+            }
+        }
+        
+        /* Animation for sections */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- Blurred background -->
+    <div class="background-blur"></div>
+    
+    <!-- Reading progress bar -->
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <div class="resume-container">
+        <div class="resume-header">
+            <div class="profile-section">
+                <!-- Profile image - replace with your own -->
+                <div class="profile-image">
+                    <img src="images/profile.png" alt="Mapalo Eldred Mange" id="profileImg">
+                </div>
+                <div class="profile-info">
+                    <h1 class="name">Mapalo Eldred Mange</h1>
+                    <div class="title">Senior Software Engineer & Product Manager</div>
+                    <p class="summary">
+                        Accomplished technology professional with extensive expertise in software engineering and product leadership. 
+                        Demonstrated success in driving innovative solutions, managing cross-functional teams, and delivering high-impact products.
+                    </p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>mangeeldred@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(+260) 960-355692</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>New Kasama, Lusaka Zambia</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <span>linkedin.com/in/mapalo-elderd-mange-4a22362bb</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <span>github.com/@mangemapalo01</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="watermark">RESUME</div>
+        </div>
+        
+        <div class="resume-body">
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h2 class="section-title">WORK EXPERIENCE</h2>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Chief Executive Officer</h3>
+                    <div class="subsection-subtitle">TypoTech ZM, Lusaka Zambia</div>
+                    <div class="subsection-date">March 2025 - Present</div>
+                    <div class="subsection-content">
+                        <ul class="achievements-list">
+                            <li>Oversaw strategic direction and operations of a software engineering firm, leading to multiple high-value client acquisitions within the first year</li>
+                            <li>Developed and executed product vision and roadmap based on comprehensive market analysis and user-centered research</li>
+                            <li>Coordinated engineering methodologies to ensure timely delivery of key product features and milestones</li>
+                            <li>Enhanced user retention by 35% through data-driven product optimizations and iterative improvements</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Software Engineering Lead</h3>
+                    <div class="subsection-subtitle">Arakan Boys Secondary School</div>
+                    <div class="subsection-date">January 2026 - Present</div>
+                    <div class="subsection-content">
+                        <ul class="achievements-list">
+                            <li>Architected and implemented a comprehensive school management system integrated with the learning and educational platform</li>
+                            <li>Introduced online enrollment and digital news communication systems for the Parent-Teacher Association board</li>
+                            <li>Mentored junior developers and established engineering best practices across the organization</li>
+                            <li>Reduced system downtime by 60% through implementation of comprehensive monitoring and alerting protocols</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Full Stack Developer</h3>
+                    <div class="subsection-subtitle">TypoTech ZM</div>
+                    <div class="subsection-date">August 2023 - Present</div>
+                    <div class="subsection-content">
+                        <ul class="achievements-list">
+                            <li>Engineered responsive web applications utilizing React, Node.js, and MongoDB technologies</li>
+                            <li>Collaborated with UX designers to create intuitive, user-centric interfaces</li>
+                            <li>Implemented automated testing frameworks that reduced production bugs by 40%</li>
+                            <li>Contributed to open-source projects and presented at developer conferences</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h2 class="section-title">EDUCATION</h2>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">High School Diploma, Cambridge IGCSE</h3>
+                    <div class="subsection-subtitle">International School of Lusaka</div>
+                    <div class="subsection-date">2022 - 2024 | GPA: 3.9/4.0</div>
+                    <div class="subsection-content">
+                        Achieved exceptional academic performance with results 85% higher than average, securing 7 A+ grades and 1 B grade across all subjects.
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Bachelor of Science in Software Engineering</h3>
+                    <div class="subsection-subtitle">University of Washington, Seattle, USA (Online Diploma)</div>
+                    <div class="subsection-date">2025 | Distinction</div>
+                    <div class="subsection-content">
+                        Performed at an advanced level, earning a digital certificate with distinction. Specialized in research methodologies and machine learning applications.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h2 class="section-title">TECHNICAL SKILLS</h2>
+                </div>
+                
+                <div class="subsection">
+                    <div class="skills-list">
+                        <div class="skill-item">JavaScript</div>
+                        <div class="skill-item">TypeScript</div>
+                        <div class="skill-item">React</div>
+                        <div class="skill-item">Node.js</div>
+                        <div class="skill-item">Python</div>
+                        <div class="skill-item">AWS</div>
+                        <div class="skill-item">Docker</div>
+                        <div class="skill-item">Kubernetes</div>
+                        <div class="skill-item">PostgreSQL</div>
+                        <div class="skill-item">MongoDB</div>
+                        <div class="skill-item">Agile/Scrum</div>
+                        <div class="skill-item">Product Strategy</div>
+                        <div class="skill-item">UI/UX Design</div>
+                        <div class="skill-item">Data Analysis</div>
+                        <div class="skill-item">Machine Learning</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+    <h2 class="section-title">ACHIEVEMENTS & CERTIFICATIONS</h2>
+                </div>
+                
+                <div class="subsection">
+                    <div class="subsection-content">
+                        <ul class="achievements-list">
+                            <li>JETS National STEM Competition Winner (Software Development Innovation 2022)</li>
+                            <li>Duolingo Arabic Speaking Proficiency Certification (2024)</li>
+                            <li>Arakan Boys Secondary School's Top Innovative IT Educator (2025)</li>
+                            <li>Second Place - Arabic Social & Cultural Linguistics International Speaking Competition (2025)</li>
+                            <li>Best Zambian Wikipedia Editor of the Year (2025)</li>
+                            <li>Multiple contributions to open-source software projects and technical publications</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Action buttons -->
+    <div class="action-buttons">
+        <a href="#" class="action-btn" id="downloadPdf">
+            <i class="fas fa-download"></i> Download PDF
+        </a>
+        <a href="#" class="action-btn print" id="printResume">
+            <i class="fas fa-print"></i> Print Resume
+        </a>
+    </div>
+
+    <script>
+        // Print functionality
+        document.getElementById('printResume').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.print();
+        });
+        
+        // Download PDF functionality
+        document.getElementById('downloadPdf').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Create a modal for download options
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.7);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 1000;
+            `;
+            
+            const modalContent = document.createElement('div');
+            modalContent.style.cssText = `
+                background-color: white;
+                padding: 30px;
+                border-radius: 5px;
+                max-width: 500px;
+                width: 90%;
+                text-align: center;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            `;
+            
+            modalContent.innerHTML = `
+                <h3 style="margin-bottom: 20px; color: #333; font-size: 22px;">Download Resume</h3>
+                <p style="margin-bottom: 25px; color: #666;">For best results, use the print function and select "Save as PDF" in your browser's print dialog.</p>
+                <div style="display: flex; gap: 15px; justify-content: center;">
+                    <button id="openPrintDialog" style="padding: 10px 20px; background-color: #333; color: white; border: none; border-radius: 4px; cursor: pointer; font-family: Oswald; font-size: 16px;">Open Print Dialog</button>
+                    <button id="closeModal" style="padding: 10px 20px; background-color: #777; color: white; border: none; border-radius: 4px; cursor: pointer; font-family: Oswald; font-size: 16px;">Close</button>
+                </div>
+            `;
+            
+            modal.appendChild(modalContent);
+            document.body.appendChild(modal);
+            
+            // Event listeners for modal buttons
+            document.getElementById('openPrintDialog').addEventListener('click', function() {
+                window.print();
+                document.body.removeChild(modal);
+            });
+            
+            document.getElementById('closeModal').addEventListener('click', function() {
+                document.body.removeChild(modal);
+            });
+            
+            // Close modal when clicking outside
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    document.body.removeChild(modal);
+                }
+            });
+        });
+        
+        // Progress bar functionality
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        });
+        
+        // Image fallback functionality
+        const profileImg = document.getElementById('profileImg');
+        profileImg.addEventListener('error', function() {
+            // If the image doesn't load, show initials instead
+            this.style.display = 'none';
+            const parent = this.parentElement;
+            parent.innerHTML = '<span style="font-size: 48px; color: #666; font-weight: 700;">MEM</span>';
+            parent.style.display = 'flex';
+            parent.style.alignItems = 'center';
+            parent.style.justifyContent = 'center';
+        });
+        
+        // Add hover effect to contact links
+        const contactItems = document.querySelectorAll('.contact-item');
+        contactItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                const icon = this.querySelector('i');
+                icon.style.color = '#fff';
+                icon.style.transform = 'scale(1.2)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                const icon = this.querySelector('i');
+                icon.style.color = '#b0b0b0';
+                icon.style.transform = 'scale(1)';
+            });
+        });
+        
+        // Section animation on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
